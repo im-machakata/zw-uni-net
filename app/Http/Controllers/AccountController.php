@@ -57,7 +57,7 @@ class AccountController extends Controller
                 'min:8',
                 'max:255'
             ],
-            'confirm-password' => [
+            'password_confirmation' => [
                 'required',
                 'same:password'
             ]
