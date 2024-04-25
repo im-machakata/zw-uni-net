@@ -5,3 +5,8 @@
   justify-content: center;
   place-items: middle;
 }
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: var(--bs-dark);
+}
