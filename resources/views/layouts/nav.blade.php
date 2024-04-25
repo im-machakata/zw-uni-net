@@ -16,7 +16,7 @@
             </ul>
             <div class="d-lg-flex col-lg-3 justify-content-lg-end">
                 <a class="btn btn-outline-dark" href="/login">Login</a>
-                <a class="btn btn-dark ms-lg-2" href="#">Register</a>
+                <a class="btn btn-dark ms-lg-2" href="/register">Register</a>
             </div>
         </div>
     </div>
