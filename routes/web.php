@@ -21,4 +21,6 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/programs', [ProgramController::class, 'index']);
 Route::get('/universities', [UniveristyController::class, 'index']);
 Route::get('/login', [AccountController::class, 'loginPage']);
-Route::get('/login', [AccountController::class, 'createSession']);
+Route::post('/login', [AccountController::class, 'createSession']);
+Route::get('/register', [AccountController::class, 'registerPage']);
+Route::post('/register', [AccountController::class, 'registerAccount']);
