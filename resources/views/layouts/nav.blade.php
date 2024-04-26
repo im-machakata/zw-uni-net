@@ -5,13 +5,13 @@
         </button>
 
         <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
-            <a class="navbar-brand fw-bold col-lg-3 me-0" href="#">Unimap</a>
+            <a class="navbar-brand fw-bold col-lg-3 me-0" href="/">Unimap</a>
             <ul class="navbar-nav col-lg-6 justify-content-lg-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Universities</a>
+                    <a class="nav-link" href="/universities">Universities</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Programs</a>
+                    <a class="nav-link" href="/programs">Programs</a>
                 </li>
             </ul>
             <div class="d-lg-flex col-lg-3 justify-content-lg-end">
