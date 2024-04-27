@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('location');
             $table->text('about')->nullable();
-            $table->text('programs')->nullable();
-            $table->text('keywords')->nullable();
+            $table->json('programs')->nullable();
+            $table->json('keywords')->nullable();
+            $table->json('requirements')->nullable();
             $table->string('website')->nullable();
             $table->string('contact_email')->nullable();
             $table->timestamps();
