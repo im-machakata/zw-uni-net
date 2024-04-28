@@ -49,11 +49,11 @@ class AccountController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
-            'type'=> 'required|in:student,university',
+            'type' => 'required|in:student,university',
             'password' => 'required|min:8|max:255',
             'password_confirmation' => 'required|same:password',
         ]);
-        
+
         if ($validator->fails()) {
             $error = $validator->errors()->first();
             return view('account/register')->with('error', $error);
@@ -70,5 +70,9 @@ class AccountController extends Controller
         session(['user' => $user]);
 
         return redirect('/');
+    }
+    public function viewProfile()
+    {
+        return view('account/profile')->with('user', session('user'))->with('error', null);
     }
 }

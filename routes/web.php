@@ -24,3 +24,4 @@ Route::get('/login', [AccountController::class, 'loginPage']);
 Route::post('/login', [AccountController::class, 'createSession']);
 Route::get('/register', [AccountController::class, 'registerPage']);
 Route::post('/register', [AccountController::class, 'registerAccount']);
+Route::get('/profile', [AccountController::class, 'viewProfile']);

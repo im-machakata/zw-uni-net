@@ -14,10 +14,17 @@
                     <a class="nav-link" href="/programs">Programs</a>
                 </li>
             </ul>
+            @if(!session()->get('user'))
             <div class="d-lg-flex col-lg-3 justify-content-lg-end">
                 <a class="btn btn-outline-dark" href="/login">Login</a>
                 <a class="btn btn-dark ms-lg-2" href="/register">Register</a>
             </div>
+            @else
+            <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+                <a class="btn btn-outline-dark" href="/profile">Profile</a>
+                <a class="btn btn-dark ms-lg-2" href="/logout">Logout</a>
+            </div>
+            @endif
         </div>
     </div>
 </nav>
