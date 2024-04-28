@@ -5,7 +5,7 @@
     <div class="container-fluid" style="background: linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.6))">
         <div class="cover text-center px-lg-5 px-3">
             <div class="container">
-                <div class="row justify-content-center">
+                <div class="row">
                     <div class="col-md-6 py-4">
                         <div class="card mt-5">
                             <div class="card-body">
@@ -17,13 +17,13 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group form-floating mb-3">
-                                                <input type="text" name="name" id="name" class="form-control" placeholder="Name" placeholder="John" required>
+                                                <input type="text" name="name" id="name" class="form-control" placeholder="John Doe" required>
                                                 <label for="name">Name</label>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group form-floating mb-3">
-                                                <input type="email" name="email" id="email" class="form-control" placeholder="Email" placeholder="email@gmail.com" required>
+                                                <input type="email" name="email" id="email" class="form-control" placeholder="email@gmail.com" required>
                                                 <label for="email">Email</label>
                                             </div>
                                         </div>
