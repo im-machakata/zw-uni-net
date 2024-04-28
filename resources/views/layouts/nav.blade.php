@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg bg-white fixed-top border-bottom border-dark border-4" aria-label="Thirteenth navbar example">
-    <div class="container-fluid justify-content-start justify-content-lg-center">
+    <div class="container-fluid px-lg-5 justify-content-start justify-content-lg-center">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
