@@ -10,9 +10,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/universities">Universities</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/programs">Programs</a>
-                </li>
             </ul>
             @if(!session()->get('user'))
             <div class="d-lg-flex col-lg-3 justify-content-lg-end">

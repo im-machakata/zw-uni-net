@@ -21,7 +21,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/programs', [ProgramController::class, 'index']);
 Route::get('/universities', [UniveristyController::class, 'index']);
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/login', [AccountController::class, 'loginPage']);
