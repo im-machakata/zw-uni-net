@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Unimap Register Account')
+@section('title','Unimap My Account')
 @section('content')
 <section>
     <div class="container-fluid">
@@ -10,7 +10,7 @@
                         <h1 class="h1">Personal Details</h1>
                         <p class="text-muted">Tell Us More About Yourself</p>
                         @include('layouts.error')
-                        <form action="/register" class="signin-form" method="post">
+                        <form action="/profile" method="post">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-6">
@@ -50,7 +50,7 @@
                         <h1 class="h1">Profile</h1>
                         <p class="text-muted">Tell Us More About Yourself</p>
                         @include('layouts.error')
-                        <form action="/register" class="signin-form" method="post">
+                        <form action="/profile" class="signin-form" method="post">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-6">
@@ -104,7 +104,7 @@
                         <h1 class="h1">Profile</h1>
                         <p class="text-muted">Tell Us More About Yourself</p>
                         @include('layouts.error')
-                        <form action="/register" class="signin-form" method="post">
+                        <form action="/profile" class="signin-form" method="post">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-6">
