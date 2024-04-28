@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg bg-white fixed-top border-bottom border-dark border-4" aria-label="Thirteenth navbar example">
-    <div class="container-fluid">
+    <div class="container-fluid justify-content-start justify-content-lg-center">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
+        <a class="navbar-brand fw-bold col-lg-3 ps-2 d-lg-none" href="/">Unimap</a>
+        <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarsExample11">
             <a class="navbar-brand fw-bold col-lg-3 me-0" href="/">Unimap</a>
             <ul class="navbar-nav col-lg-6 justify-content-lg-center">
                 <li class="nav-item">
