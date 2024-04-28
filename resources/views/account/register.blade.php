@@ -12,7 +12,7 @@
                                 <h1 class="text-center">Register</h1>
                                 <p class="text-muted">Join our community</p>
                                 @include('layouts.error')
-                                <form action="/register" class="signin-form">
+                                <form action="/register" class="signin-form" method="post">
                                     @csrf
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -25,6 +25,15 @@
                                             <div class="form-group form-floating mb-3">
                                                 <input type="email" name="email" id="email" class="form-control" placeholder="Email" placeholder="email@gmail.com" required>
                                                 <label for="email">Email</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group form-floating mb-3">
+                                                <select name="type" id="type" class="form-select" required>
+                                                    <option value="student" selected>Student</option>
+                                                    <option value="university">University</option>
+                                                </select>
+                                                <label for="type">User Type</label>
                                             </div>
                                         </div>
                                     </div>

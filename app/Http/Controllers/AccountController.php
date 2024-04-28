@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AccountController extends Controller
 {
@@ -45,26 +46,17 @@ class AccountController extends Controller
     }
     public function registerAccount(Request $request)
     {
-        $form = $request->validate([
-            'name' => [
-                'required'
-            ],
-            'email' => [
-                'required'
-            ],
-            'password' => [
-                'required',
-                'min:8',
-                'max:255'
-            ],
-            'password_confirmation' => [
-                'required',
-                'same:password'
-            ]
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'type'=> 'required|in:student,university',
+            'password' => 'required|min:8|max:255',
+            'password_confirmation' => 'required|same:password',
         ]);
-
-        if (!$request->validated()) {
-            return view('account/register')->with('error', 'Incorrect email or password');
+        
+        if ($validator->fails()) {
+            $error = $validator->errors()->first();
+            return view('account/register')->with('error', $error);
         }
 
         // create user
