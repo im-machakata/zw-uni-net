@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\UniveristyController;
+use App\Http\Middleware\UserIsLogged;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,8 +21,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/programs', [ProgramController::class, 'index']);
 Route::get('/universities', [UniveristyController::class, 'index']);
-Route::get('/login', [AccountController::class, 'loginPage']);
-Route::post('/login', [AccountController::class, 'createSession']);
-Route::get('/register', [AccountController::class, 'registerPage']);
-Route::post('/register', [AccountController::class, 'registerAccount']);
-Route::get('/profile', [AccountController::class, 'viewProfile']);
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/login', [AccountController::class, 'loginPage']);
+    Route::post('/login', [AccountController::class, 'createSession']);
+    Route::get('/register', [AccountController::class, 'registerPage']);
+    Route::post('/register', [AccountController::class, 'registerAccount']);
+});
+Route::group(['middleware' => UserIsLogged::class], function () {
+    Route::get('/profile', [AccountController::class, 'viewProfile']);
+});
