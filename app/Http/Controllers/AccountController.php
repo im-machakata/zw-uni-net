@@ -75,4 +75,31 @@ class AccountController extends Controller
     {
         return view('account/profile')->with('user', session('user'))->with('error', null);
     }
+    public function updateProfile(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:8|max:255',
+            'password_confirmation' => 'required|same:password',
+        ]);
+
+        if ($validator->fails()) {
+            $error = $validator->errors()->first();
+            return view('account/profile')->with('error', $error);
+        }
+
+        // update user
+        $form = $validator->validated();
+        $user = User::query()->find(session('user')->id);
+        $user->name = $form['name'];
+        $user->email = $form['email'];
+        $user->password = password_hash($form['password'], PASSWORD_DEFAULT);
+        $user->save();
+
+        return redirect('/profile')
+            ->with('error', null)
+            ->with('user', session('user'))
+            ->with('success', 'Profile updated');
+    }
 }

@@ -4,13 +4,15 @@
 <section>
     <div class="container-fluid">
         <div class="row">
+            <div class="col-12">
+                @include('layouts.error')
+            </div>
             <div class="col-md-6 py-4">
                 <div class="card border-0 mt-5">
                     <div class="card-body">
                         <h1 class="h1">Personal Details</h1>
                         <p class="text-muted">Tell Us More About Yourself</p>
-                        @include('layouts.error')
-                        <form action="/profile" method="post">
+                        <form action="/profile/update" method="post">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-6">
@@ -49,7 +51,6 @@
                     <div class="card-body">
                         <h1 class="h1">Profile</h1>
                         <p class="text-muted">Tell Us More About Yourself</p>
-                        @include('layouts.error')
                         <form action="/profile" class="signin-form" method="post">
                             @csrf
                             <div class="row">
@@ -103,7 +104,6 @@
                     <div class="card-body">
                         <h1 class="h1">Profile</h1>
                         <p class="text-muted">Tell Us More About Yourself</p>
-                        @include('layouts.error')
                         <form action="/profile" class="signin-form" method="post">
                             @csrf
                             <div class="row">

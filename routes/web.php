@@ -31,6 +31,7 @@ Route::group(['middleware' => 'guest'], function () {
 });
 Route::group(['middleware' => UserIsLogged::class], function () {
     Route::get('/profile', [AccountController::class, 'viewProfile']);
+    Route::post('/profile/update', [AccountController::class, 'updateProfile']);
 });
 
 // set up migration endpoint
