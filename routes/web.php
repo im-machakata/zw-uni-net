@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\UniveristyController;
 use App\Http\Middleware\UserIsLogged;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,4 +31,15 @@ Route::group(['middleware' => 'guest'], function () {
 });
 Route::group(['middleware' => UserIsLogged::class], function () {
     Route::get('/profile', [AccountController::class, 'viewProfile']);
+});
+
+// set up migration endpoint
+Route::get('/_db/_migrate', function (Request $request) {
+    if($request->has('force')) {
+        Artisan::call('migrate:fresh');
+        Artisan::call('db:seed');
+    } else {
+        Artisan::call('migrate');
+    }
+    return 'Done';
 });
