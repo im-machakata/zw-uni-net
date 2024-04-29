@@ -6,7 +6,7 @@
         <div class="cover container text-center px-lg-5 px-3">
             <h1 class="fw-bold text-white display-5">Find Your Universe</h1>
             <p class="lead text-white fw-medium">Find programs that match yours, enroll and wait for the reply.</p>
-            <form action="/universities" method="get">
+            <form action="/search" method="get">
                 <div class="row justify-content-center place-items-center">
                     <div class="col-lg-8 mb-3">
                         <input type="search" name="program" class="form-control form-control-lg rounded-pill text-center" placeholder="Which Program(s) Are You Interested In? " required>
