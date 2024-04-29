@@ -40,6 +40,11 @@ class AccountController extends Controller
 
         return redirect('/');
     }
+    public function deleteSession(){
+        session()->forget('user');
+        session()->flush();
+        return redirect('/');
+    }
     public function registerPage()
     {
         return view('account/register')->with('error', null);

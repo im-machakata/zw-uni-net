@@ -31,6 +31,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/register', [AccountController::class, 'registerAccount']);
 });
 Route::group(['middleware' => UserIsLogged::class], function () {
+    Route::get('/logout', [AccountController::class, 'deleteSession']);
     Route::get('/profile', [AccountController::class, 'viewProfile']);
     Route::post('/profile/update', [AccountController::class, 'updateProfile']);
 });
