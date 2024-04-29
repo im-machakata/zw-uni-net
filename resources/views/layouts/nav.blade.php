@@ -1,15 +1,23 @@
-<nav class="navbar navbar-expand-lg bg-white fixed-top border-bottom border-dark border-4" aria-label="Thirteenth navbar example">
-    <div class="container-fluid px-lg-5 justify-content-start justify-content-lg-center">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg bg-white fixed-top border-bottom border-dark border-4" aria-label="Navigation menu">
+    <div class="container-fluid px-lg-5 justify-content-start justify-content-lg-center mx-auto">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand fw-bold col-lg-3 ps-2 d-lg-none" href="/">Unimap</a>
-        <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarsExample11">
-            <a class="navbar-brand fw-bold col-lg-3 me-0" href="/">Unimap</a>
+        <a class="navbar-brand fw-bold col-lg-3 ps-3 d-lg-block" href="/">Unimap</a>
+        <div class="collapse navbar-collapse d-lg-flex justify-content-lg-between" id="navigation">
             <ul class="navbar-nav col-lg-6 justify-content-lg-center">
-                <li class="nav-item">
+                <li class="nav-item ps-lg-5 ms-lg-5">
                     <a class="nav-link" href="/universities">Universities</a>
                 </li>
+                @if(session()->get('user') && session()->get('user')->type == 'university')
+                <li class="nav-item">
+                    <a class="nav-link" href="/admissions">Admissions</a>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link" href="/my-admissions">Admissions</a>
+                </li>
+                @endif
             </ul>
             @if(!session()->get('user'))
             <div class="d-lg-flex col-lg-3 justify-content-lg-end">
