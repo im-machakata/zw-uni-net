@@ -7,7 +7,8 @@
 }
 
 .form-control:focus,
-.form-select:focus {
-  box-shadow: none;
+.form-select:focus,
+button:focus {
+  box-shadow: none !important;
   border-color: var(--bs-dark);
 }
