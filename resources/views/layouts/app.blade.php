@@ -20,8 +20,8 @@
     </main>
 </body>
 
-<script src="/static/js/jquery.3.7.1.min.js" async defer></script>
-<script src="/static/js/bootstrap.bundle.min.js?version=5.3.3" async defer></script>
-<script src="/static/js/app.js" async defer></script>
+<script src="/static/js/jquery.3.7.1.min.js" defer></script>
+<script src="/static/js/bootstrap.bundle.min.js?version=5.3.3" defer></script>
+<script src="/static/js/app.js" defer></script>
 
 </html>
