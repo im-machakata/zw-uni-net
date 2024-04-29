@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\UniveristyController;
 use App\Http\Middleware\UserIsLogged;
+use App\Http\Middleware\UserIsUniversity;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/universities', [UniveristyController::class, 'index']);
+Route::get('/search', [UniveristyController::class, 'index']);
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/login', [AccountController::class, 'loginPage']);
     Route::post('/login', [AccountController::class, 'createSession']);
@@ -31,6 +33,10 @@ Route::group(['middleware' => 'guest'], function () {
 Route::group(['middleware' => UserIsLogged::class], function () {
     Route::get('/profile', [AccountController::class, 'viewProfile']);
     Route::post('/profile/update', [AccountController::class, 'updateProfile']);
+});
+
+Route::group(['middleware' => UserIsUniversity::class], function () {
+    Route::get('/admissions', [AdmissionController::class, 'viewAdmissions']);
 });
 
 // set up migration endpoint

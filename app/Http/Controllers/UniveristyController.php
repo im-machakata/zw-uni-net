@@ -8,9 +8,9 @@ class UniveristyController extends Controller
 {
     public function index(Request $request)
     {
-        if($request->has('program')){
+        if($request->has('q')){
             $title = '';
         }
-        return view('universities');
+        return view('search');
     }
 }
