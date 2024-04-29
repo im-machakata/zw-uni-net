@@ -9,14 +9,16 @@
                 <li class="nav-item ps-lg-5 ms-lg-5">
                     <a class="nav-link" href="/search">Universities</a>
                 </li>
-                @if(session()->get('user') && session()->get('user')->type == 'university')
+                @if(session()->get('user'))
+                @if(session()->get('user')->type === 'university')
                 <li class="nav-item">
                     <a class="nav-link" href="/admissions">Admissions</a>
                 </li>
                 @else
                 <li class="nav-item">
-                    <a class="nav-link" href="/my-admissions">Admissions</a>
+                    <a class="nav-link" href="/my-admissions">My Admissions</a>
                 </li>
+                @endif
                 @endif
             </ul>
             @if(!session()->get('user'))
