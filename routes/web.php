@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MigrationController;
 use App\Http\Controllers\UniveristyController;
 use App\Http\Middleware\UserIsLogged;
+use App\Http\Middleware\UserIsStudent;
 use App\Http\Middleware\UserIsUniversity;
 use Illuminate\Support\Facades\Route;
 
@@ -32,11 +33,15 @@ Route::group(['middleware' => UserIsLogged::class], function () {
     Route::get('/logout', [AccountController::class, 'deleteSession']);
     Route::get('/profile', [AccountController::class, 'viewProfile']);
     Route::post('/profile/update', [AccountController::class, 'updateProfile']);
+
+    Route::group(['middleware' => UserIsUniversity::class], function () {
+        Route::get('/admissions', [AdmissionController::class, 'viewAdmissions']);
+    });
+    Route::group(['middleware' => UserIsStudent::class], function () {
+        Route::get('/my-admissions', [AdmissionController::class, 'viewMyAdmissions']);
+    });
 });
 
-Route::group(['middleware' => UserIsUniversity::class], function () {
-    Route::get('/admissions', [AdmissionController::class, 'viewAdmissions']);
-});
 
 // set up migration endpoint
 Route::get('/_db/_migrate', [MigrationController::class,'index']);
