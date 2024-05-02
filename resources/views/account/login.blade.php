@@ -28,7 +28,7 @@
                                     </div>
                                     <div class="form-group d-md-flex">
                                         <div class="text-md-right">
-                                            <a href="#">Forgot Password</a>
+                                            <!-- <a href="#">Forgot Password</a> -->
                                         </div>
                                     </div>
                                 </form>
