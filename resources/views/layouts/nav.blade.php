@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse d-lg-flex justify-content-lg-between" id="navigation">
             <ul class="navbar-nav col-lg-6 justify-content-lg-center">
                 <li class="nav-item ps-lg-5 ms-lg-5">
-                    <a class="nav-link" href="/search">Universities</a>
+                    <a class="nav-link" href="/search">Search</a>
                 </li>
                 @if(session()->get('user'))
                 @if(session()->get('user')->type === 'university')
