@@ -9,7 +9,7 @@
             <form action="/search" method="get">
                 <div class="row justify-content-center place-items-center">
                     <div class="col-lg-8 mb-3">
-                        <input type="search" name="program" class="form-control form-control-lg rounded-pill text-center" placeholder="Which Program(s) Are You Interested In? " required>
+                        <input type="search" name="q" class="form-control form-control-lg rounded-pill text-center" placeholder="Which Program(s) Are You Interested In? " required>
                     </div>
                     <div class="col-12"></div>
                     <div class="col-lg-4">
@@ -17,6 +17,18 @@
                     </div>
                 </div>
             </form>
+        </div>
+        <div class="row">
+            @foreach($universities as $university)
+            <div class="col-lg-3">
+                <div class="card my-3">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ $university->name }}</h2>
+                        <p>{{ $university->website }}</p>
+                    </div>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
 </section>
