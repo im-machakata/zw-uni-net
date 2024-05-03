@@ -19,43 +19,43 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group form-floating mb-3">
-                                        <input type="text" name="university_name" id="university_name" class="form-control" value="{{ $university->name ??'' }}" placeholder="John Doe" required>
+                                        <input type="text" name="name" id="university_name" class="form-control" value="{{ $university->name ??'' }}" placeholder="John Doe" required>
                                         <label for="university_name">University Name</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group form-floating mb-3">
-                                        <input type="email" name="university_contact_email" id="university_contact_email" class="form-control" value="{{ $university->contact_email ??'' }}" placeholder="email@gmail.com" required>
+                                        <input type="email" name="contact_email" id="university_contact_email" class="form-control" value="{{ $university->contact_email ??'' }}" placeholder="email@gmail.com" required>
                                         <label for="university_contact_email">University Email</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group form-floating mb-3">
-                                        <input type="text" name="university_location" id="university_location" class="form-control" value="{{ $university->location ??'' }}" placeholder="Mashava GZU" required>
+                                        <input type="text" name="location" id="university_location" class="form-control" value="{{ $university->location ??'' }}" placeholder="Mashava GZU" required>
                                         <label for="university_location">University Location</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group form-floating mb-3">
-                                        <input type="url" name="university_website" id="university_website" class="form-control" value="{{ $university->website ??'' }}" placeholder="Mashava GZU" required>
+                                        <input type="url" name="website" id="university_website" class="form-control" value="{{ $university->website ??'' }}" placeholder="Mashava GZU" required>
                                         <label for="university_website">University Website</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group form-floating mb-3">
-                                        <input type="url" name="university_programs" id="university_programs" class="form-control" value="{{ $university->programs ??'' }}" placeholder="Information Systems, Accounts" required>
+                                        <input type="text" name="programs" id="university_programs" class="form-control" value="{{ $university->programs ??'' }}" placeholder="Information Systems, Accounts" required>
                                         <label for="university_programs">University Programs</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group form-floating mb-3">
-                                        <input type="url" name="university_keywords" id="university_keywords" class="form-control" value="{{ $university->keywords ??'' }}" placeholder="GZU, Mashava" required>
+                                        <input type="text" name="keywords" id="university_keywords" class="form-control" value="{{ $university->keywords ??'' }}" placeholder="GZU, Mashava" required>
                                         <label for="university_keywords">University Keywords</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group form-floating mb-3">
-                                        <textarea name="university_about" id="university_about" class="form-control" placeholder="About university" style="height:100px">{{ $university->about ?? '' }}</textarea>
+                                        <textarea name="about" id="university_about" class="form-control" placeholder="About university" style="height:100px">{{ $university->about ?? '' }}</textarea>
                                         <label for="university_about">About University</label>
                                     </div>
                                 </div>

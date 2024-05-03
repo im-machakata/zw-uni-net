@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\University;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -40,7 +41,8 @@ class AccountController extends Controller
 
         return redirect('/');
     }
-    public function deleteSession(){
+    public function deleteSession()
+    {
         session()->forget('user');
         session()->flush();
         return redirect('/');
@@ -78,7 +80,16 @@ class AccountController extends Controller
     }
     public function viewProfile()
     {
-        return view('account/profile')->with('user', session('user'))->with('error', null);
+        $university = null;
+        if (session('user')->type == 'university') {
+            $university = University::query()
+                ->where(['user_id' => session('user')->id])
+                ->first();
+        }
+        return view('account/profile')
+            ->with('university', $university)
+            ->with('user', session('user'))
+            ->with('error', null);
     }
     public function updateProfile(Request $request)
     {
@@ -106,5 +117,36 @@ class AccountController extends Controller
             ->with('error', null)
             ->with('user', session('user'))
             ->with('success', 'Profile updated');
+    }
+    public function updateUniversity(Request $request)
+    {
+        $university = University::find($request->university_id);
+        $validation = Validator::make($request->all(), [
+            'name' => ['required'],
+            'location' => ['required'],
+            'about' => ['nullable'],
+            'programs' => ['nullable'],
+            'keywords' => ['nullable'],
+            'requirements' => ['nullable'],
+            'website' => ['nullable'],
+            'contact_email' => ['nullable'],
+        ]);
+
+        if ($validation->fails()) {
+            $error = $validation->errors()->first();
+            return view('account/profile')->with('error', $error)->with('university', $university);
+        }
+
+        $universityID = University::query()->where([
+            'user_id' => session('user')->id
+        ])->first()->id ?? null;
+        $universityProfile = [...$request->all(), 'id' => $universityID];
+        University::query()->save($universityProfile);
+
+        // show success message
+        return view('account/profile')
+            ->with('error', null)
+            ->with('success', 'Profile updated!')
+            ->with('university', $university);
     }
 }

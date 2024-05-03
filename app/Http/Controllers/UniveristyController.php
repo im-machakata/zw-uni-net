@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\University;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class UniveristyController extends Controller
 {
@@ -13,4 +15,6 @@ class UniveristyController extends Controller
         }
         return view('search');
     }
+
+    public function search(Request $request){}
 }
