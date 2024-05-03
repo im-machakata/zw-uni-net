@@ -36,6 +36,7 @@ Route::group(['middleware' => UserIsLogged::class], function () {
 
     Route::group(['middleware' => UserIsUniversity::class], function () {
         Route::get('/admissions', [AdmissionController::class, 'viewAdmissions']);
+        Route::get('/university/update', [UniveristyController::class, 'updateUniversity']);
     });
     Route::group(['middleware' => UserIsStudent::class], function () {
         Route::get('/my-admissions', [AdmissionController::class, 'viewMyAdmissions']);
@@ -44,4 +45,4 @@ Route::group(['middleware' => UserIsLogged::class], function () {
 
 
 // set up migration endpoint
-Route::get('/_db/_migrate', [MigrationController::class,'index']);
+Route::get('/_db/_migrate', [MigrationController::class, 'index']);
