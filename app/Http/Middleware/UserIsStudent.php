@@ -15,7 +15,7 @@ class UserIsStudent
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (session()->get('user')->type != 'student') {
+        if (session()->get('user')->type == 'university') {
             return redirect('/login');
         }
         return $next($request);
