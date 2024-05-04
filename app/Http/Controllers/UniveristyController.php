@@ -19,6 +19,7 @@ class UniveristyController extends Controller
                 ->orWhere('location', 'like', '%'. $query. '%')
                 ->orWhere('about', 'like', '%'. $query. '%')
                 ->orWhere('keywords', 'like', '%'. $query. '%')
+                ->orWhere('programs', 'like', '%'. $query. '%')
                 ->orWhere('requirements', 'like', '%'. $query. '%')
                 ->orWhere('website', 'like', '%'. $query. '%')
                 ->orWhere('contact_email', 'like', '%'. $query. '%')
