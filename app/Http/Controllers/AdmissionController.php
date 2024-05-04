@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admission;
+use App\Models\University;
 use Illuminate\Http\Request;
 
 class AdmissionController extends Controller
@@ -14,6 +15,12 @@ class AdmissionController extends Controller
     {
         $admissions = Admission::all();
         return view('admissions/index', ['admissions' => $admissions])->with('error', null);
+    }
+
+    public function viewApplyToUniversity($id)
+    {
+        $university = University::where('id', $id)->firstOrFail();
+        return view('admissions/apply')->with('error', null)->with('university', $university);
     }
 
     /**

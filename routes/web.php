@@ -39,6 +39,7 @@ Route::group(['middleware' => UserIsLogged::class], function () {
         Route::post('/university/update', [AccountController::class, 'updateUniversity']);
     });
     Route::group(['middleware' => UserIsStudent::class], function () {
+        Route::get('/apply/{id}', [AdmissionController::class, 'viewApplyToUniversity']);
         Route::get('/my-admissions', [AdmissionController::class, 'viewMyAdmissions']);
     });
 });
