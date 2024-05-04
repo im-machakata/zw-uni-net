@@ -82,8 +82,11 @@ class AccountController extends Controller
     }
     public function viewProfile()
     {
+        $university = null;
         $user = session('user');
-        $university = University::where('user_id', $user->id)->firstOrCreate();
+        if($user->type == 'university'){
+            $university = University::where('user_id', $user->id)->firstOrNew();
+        }
 
         return view('account/profile')
             ->with('university', $university)
