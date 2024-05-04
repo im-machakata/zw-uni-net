@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\University;
 use App\Models\User;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class AccountController extends Controller
 {
@@ -80,15 +82,12 @@ class AccountController extends Controller
     }
     public function viewProfile()
     {
-        $university = null;
-        if (session('user')->type == 'university') {
-            $university = University::query()
-                ->where(['user_id' => session('user')->id])
-                ->first();
-        }
+        $user = session('user');
+        $university = University::where('user_id', $user->id)->firstOrCreate();
+
         return view('account/profile')
             ->with('university', $university)
-            ->with('user', session('user'))
+            ->with('user', $user)
             ->with('error', null);
     }
     public function updateProfile(Request $request)
@@ -120,33 +119,57 @@ class AccountController extends Controller
     }
     public function updateUniversity(Request $request)
     {
-        $university = University::find($request->university_id);
+        $user = session('user');
         $validation = Validator::make($request->all(), [
-            'name' => ['required'],
-            'location' => ['required'],
-            'about' => ['nullable'],
-            'programs' => ['nullable'],
-            'keywords' => ['nullable'],
-            'requirements' => ['nullable'],
-            'website' => ['nullable'],
-            'contact_email' => ['nullable'],
+            'name' => [
+                'required',
+            ],
+            'location' => [
+                'required'
+            ],
+            'about' => [
+                'nullable'
+            ],
+            'programs' => [
+                'nullable',
+                'string'
+            ],
+            'keywords' => [
+                'nullable',
+                'string'
+            ],
+            'requirements' => [
+                'nullable'
+            ],
+            'website' => [
+                'nullable',
+                'url',
+            ],
+            'contact_email' => [
+                'nullable',
+                'email',
+            ],
         ]);
 
         if ($validation->fails()) {
             $error = $validation->errors()->first();
-            return view('account/profile')->with('error', $error)->with('university', $university);
+            return view('account/profile')
+                ->with('error', $error)
+                ->with('university', University::find($user->id))
+                ->with('user', session('user'));
         }
 
-        $universityID = University::query()->where([
-            'user_id' => session('user')->id
-        ])->first()->id ?? null;
-        $universityProfile = [...$request->all(), 'id' => $universityID];
-        University::query()->save($universityProfile);
+        // create/update university details
+        $university = University::where('user_id', $user->id)->firstOrNew();
+        University::updateOrCreate(
+            array(
+                'id' => $university->id,
+                'user_id' => $user->id
+            ),
+            $validation->validated()
+        );
 
         // show success message
-        return view('account/profile')
-            ->with('error', null)
-            ->with('success', 'Profile updated!')
-            ->with('university', $university);
+        return back()->with('error', 'University updated');
     }
 }
