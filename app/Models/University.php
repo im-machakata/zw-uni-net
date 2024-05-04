@@ -19,8 +19,4 @@ class University extends Model
         'website',
         'contact_email',
     ];
-
-    public function user(){
-        return $this->belongsTo(User::class);
-    }
 }
