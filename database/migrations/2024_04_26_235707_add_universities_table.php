@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('universities', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('name')->unique();
+            $table->string('name');
             $table->string('location');
             $table->text('about')->nullable();
-            $table->json('programs')->nullable();
-            $table->json('keywords')->nullable();
-            $table->json('requirements')->nullable();
-            $table->string('website')->unique()->nullable();
-            $table->string('contact_email')->unique()->nullable();
+            $table->text('programs')->nullable();
+            $table->text('keywords')->nullable();
+            $table->text('requirements')->nullable();
+            $table->string('website')->nullable();
+            $table->string('contact_email')->nullable();
             $table->timestamps();
         });
     }
