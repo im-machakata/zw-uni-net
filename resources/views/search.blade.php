@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Unimap Universities')
+@section('title', 'Unimap Universities')
 @section('content')
 <section class="bg-dark" style="background: url(/static/images/class.jpg);">
     <div class="container-fluid" style="background: linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.6))">
@@ -18,14 +18,14 @@
                 </div>
             </form>
         </div>
-        <div class="row container justify-content-center mx-auto bg-white rounded-top-2 py-4"style="margin-top: -8rem;">
+        <div class="row container justify-content-center mx-auto bg-white rounded-top-2 py-4" style="margin-top: -8rem;">
             @foreach($universities as $university)
             <div class="col-lg-3">
                 <div class="card border-dark border-2 my-3">
                     <div class="card-body">
                         <h2 class="card-title h5 fw-bold">{{ $university->name }}</h2>
                         <p>{{ Str::limit($university->about) }}</p>
-                        <p><a href="#/apply" class="btn btn-outline-dark">Apply</a></p>
+                        <p><a href="/apply/{{$university->id}}" class="btn btn-outline-dark">Apply</a></p>
                     </div>
                 </div>
             </div>
