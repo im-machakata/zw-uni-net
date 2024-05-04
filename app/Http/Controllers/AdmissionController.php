@@ -16,6 +16,12 @@ class AdmissionController extends Controller
         $admissions = Admission::all();
         return view('admissions/index', ['admissions' => $admissions])->with('error', null);
     }
+    public function viewMyAdmissions()
+    {
+        $user = session('user');
+        $admissions = Admission::where('student_id', $user->id)->get();
+        return view('admissions/show', ['admissions' => $admissions])->with('error', null);
+    }
 
     public function viewApplyToUniversity($id)
     {
