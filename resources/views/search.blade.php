@@ -9,7 +9,7 @@
             <form action="/search" method="get">
                 <div class="row justify-content-center place-items-center">
                     <div class="col-lg-8 mb-3">
-                        <input type="search" name="q" class="form-control form-control-lg rounded-pill text-center" placeholder="Which Program(s) Are You Interested In? " required>
+                        <input type="search" name="q" class="form-control form-control-lg rounded-pill text-center" placeholder="Which Program(s) Are You Interested In? " value="{{ $query }}" required>
                     </div>
                     <div class="col-12"></div>
                     <div class="col-lg-4">
@@ -18,13 +18,14 @@
                 </div>
             </form>
         </div>
-        <div class="row">
+        <div class="row container justify-content-center mx-auto bg-white rounded-top-2 py-4"style="margin-top: -8rem;">
             @foreach($universities as $university)
             <div class="col-lg-3">
-                <div class="card my-3">
+                <div class="card border-dark border-2 my-3">
                     <div class="card-body">
-                        <h2 class="card-title">{{ $university->name }}</h2>
-                        <p>{{ $university->website }}</p>
+                        <h2 class="card-title h5 fw-bold">{{ $university->name }}</h2>
+                        <p>{{ Str::limit($university->about) }}</p>
+                        <p><a href="#/apply" class="btn btn-outline-dark">Apply</a></p>
                     </div>
                 </div>
             </div>

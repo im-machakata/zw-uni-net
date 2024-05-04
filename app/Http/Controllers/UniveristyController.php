@@ -10,11 +10,22 @@ class UniveristyController extends Controller
 {
     public function index(Request $request)
     {
-        if($request->has('q')){
-            $title = '';
+        $results = [];
+        $query = null;
+        if ($request->has('q')) {
+            $query = $request->query('q');
+            $results = University::query()
+                ->where('name', 'like', '%'. $query. '%')
+                ->orWhere('location', 'like', '%'. $query. '%')
+                ->orWhere('about', 'like', '%'. $query. '%')
+                ->orWhere('keywords', 'like', '%'. $query. '%')
+                ->orWhere('requirements', 'like', '%'. $query. '%')
+                ->orWhere('website', 'like', '%'. $query. '%')
+                ->orWhere('contact_email', 'like', '%'. $query. '%')
+                ->get();
         }
-        return view('search');
+        return view('search')
+            ->with('query', $query)
+            ->with('universities', $results);
     }
-
-    public function search(Request $request){}
 }
