@@ -6,9 +6,34 @@
   place-items: middle;
 }
 
+.form-control:not(button),
 .form-control:focus,
+.form-select,
 .form-select:focus,
 button:focus {
   box-shadow: none !important;
   border-color: var(--bs-dark);
+}
+
+.form-control,
+.form-select,
+label,
+.btn,
+.card,
+.round-off {
+  border-radius: 6px;
+}
+
+.form-control,
+.form-select,
+label,
+.card,
+.btn,
+.round-off {
+  border-width: 3px;
+}
+
+.card {
+  border-color: var(--bs-dark);
+  box-shadow: 2px 2px 3px #b8b8b8 !important;
 }
