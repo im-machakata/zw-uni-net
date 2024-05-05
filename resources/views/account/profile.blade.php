@@ -61,7 +61,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="form-control btn btn-lg btn-primary submit px-3 mb-3">Update Details</button>
+                                <button type="submit" class="form-control btn btn-lg btn-dark submit px-3 mb-3">Update Details</button>
                             </div>
                         </form>
                     </div>
@@ -97,7 +97,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="disabled form-control btn btn-lg btn-primary submit px-3 mb-3">Update Details</button>
+                                <button type="submit" class="disabled form-control btn btn-lg btn-dark submit px-3 mb-3">Update Details</button>
                             </div>
                         </form>
                     </div>
@@ -137,7 +137,7 @@
                                 <span toggle="#confirm-password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="form-control btn btn-lg btn-primary submit px-3 mb-3">Update Details</button>
+                                <button type="submit" class="form-control btn btn-lg btn-dark submit px-3 mb-3">Update Details</button>
                             </div>
                         </form>
                     </div>
