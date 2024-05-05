@@ -9,7 +9,7 @@
             </div>
             @if(session('user')->type == 'university')
             <div class="col-md-6 pb-4">
-                <div class="card border-0">
+                <div class="card">
                     <div class="card-body">
                         <p><span class="badge bg-primary">{{ $user->type }}</span></p>
                         <h1 class="h1">University Details</h1>
@@ -69,7 +69,7 @@
             </div>
             @else
             <div class="col-md-6 pb-4">
-                <div class="card border-0">
+                <div class="card">
                     <div class="card-body">
                         <p><span class="badge bg-primary">{{ $user->type }}</span></p>
                         <h1 class="h1">Academic Qualification</h1>
@@ -105,7 +105,7 @@
             </div>
             @endif
             <div class="col-md-6 pb-4">
-                <div class="card border-0">
+                <div class="card">
                     <div class="card-body">
                         <p><span class="badge bg-primary invisible">{{ $user->type }}</span></p>
                         <h1 class="h1">Personal Details</h1>
