@@ -1,9 +1,15 @@
 .cover {
-  min-height: 100vh;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   place-items: middle;
+}
+ 
+@media (min-width: 992px) {
+    .cover {
+        min-height: 100vh;
+    }
 }
 
 .form-control:not(button),
