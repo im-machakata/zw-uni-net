@@ -5,11 +5,11 @@
   justify-content: center;
   place-items: middle;
 }
- 
+
 @media (min-width: 992px) {
-    .cover {
-        min-height: 100vh;
-    }
+  .cover {
+    min-height: 100vh;
+  }
 }
 
 .form-control:not(button),
@@ -41,5 +41,4 @@ label,
 
 .card {
   border-color: var(--bs-dark);
-  box-shadow: 2px 2px 3px #b8b8b8 !important;
 }
