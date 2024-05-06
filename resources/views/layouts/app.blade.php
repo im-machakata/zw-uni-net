@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta name="author" content="Knowledge">
-    <meta name="description" content="Find your next university with Unimap, e-map for seniors">
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css?version=5.3.3">
-    <link rel="stylesheet" href="/static/css/style.css">
-    <title>@yield('title','Uni Map')</title>
+<meta name="author" content="Knowledge">
+<meta name="description" content="Find your next university with Unimap, e-map for seniors">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/static/css/bootstrap.min.css?version=5.3.3">
+<link rel="stylesheet" href="/static/css/style.css?version={{ filemtime(public_path('static/css/style.css')) }}">
+<title>@yield('title','Uni Map')</title>
 </head>
 
 <body>
