@@ -11,7 +11,7 @@
         <div class="row container mx-auto py-4" style="margin-top: -8rem;">
             @if(!count($universities) && $query)
             <div class="col-12">
-                <div class="card">
+                <div class="card border-0">
                     <div class="card-body">
                         <h2 class="card-title h4 mt-2">No results found!</h2>
                     </div>
