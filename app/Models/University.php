@@ -10,7 +10,6 @@ class University extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'user_id',
         'location',
         'about',
         'programs',
