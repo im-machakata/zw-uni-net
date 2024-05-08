@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Unimap Add University')
+@section('title','Unimap Universities')
 @section('content')
 <section>
     <div class="container-fluid">
@@ -13,43 +13,45 @@
                         <p><span class="badge bg-primary">{{ $user->type }}</span></p>
                         <h1 class="h1">University Details</h1>
                         <p class="text-muted">Tell Us More About Your University</p>
-                        <form action="/university/create" method="post">
+                        <form action="/universities" method="post">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group form-floating mb-3">
-                                        <input type="text" name="name" id="university_name" class="form-control"  placeholder="John Doe" autocomplete="off" required>
+                                        <input type="text" name="name" id="university_name" class="form-control" placeholder="John Doe" autocomplete="off" required>
                                         <label for="university_name">University Name</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group form-floating mb-3">
-                                        <input type="email" name="contact_email" id="university_contact_email" class="form-control"  placeholder="email@gmail.com" autocomplete="off" required>
+                                        <input type="email" name="contact_email" id="university_contact_email" class="form-control" placeholder="email@gmail.com" autocomplete="off" required>
                                         <label for="university_contact_email">University Email</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group form-floating mb-3">
-                                        <input type="text" name="location" id="university_location" class="form-control"  placeholder="Mashava GZU" autocomplete="off" required>
+                                        <input type="text" name="location" id="university_location" class="form-control" placeholder="Mashava GZU" autocomplete="off" required>
                                         <label for="university_location">University Location</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group form-floating mb-3">
-                                        <input type="url" name="website" id="university_website" class="form-control"  placeholder="Mashava GZU" autocomplete="off" required>
+                                        <input type="url" name="website" id="university_website" class="form-control" placeholder="Mashava GZU" autocomplete="off" required>
                                         <label for="university_website">University Website</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group form-floating mb-3">
-                                        <input type="text" name="programs" id="university_programs" class="form-control tags"  placeholder="Information Systems, Accounts" autocomplete="off" required>
+                                        <input type="text" name="programs" id="university_programs" class="form-control tags" placeholder="Information Systems, Accounts" autocomplete="off" required>
                                         <label for="university_programs">University Programs</label>
+                                        <small class="form-text text-muted">Enter a comma-separated list of programs offered by the university.</small>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group form-floating mb-3">
-                                        <input type="text" name="keywords" id="university_keywords" class="form-control tags"  placeholder="GZU, Mashava" autocomplete="off" required>
+                                        <input type="text" name="keywords" id="university_keywords" class="form-control tags" placeholder="GZU, Mashava" autocomplete="off" required>
                                         <label for="university_keywords">University Keywords</label>
+                                        <small class="form-text text-muted">Enter comma separated keywords related to the university</small>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -60,10 +62,53 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="form-control btn btn-lg btn-dark submit px-3 mb-3">Update Details</button>
+                                <button type="submit" class="form-control btn btn-lg btn-dark submit px-3 mb-3">Add University</button>
                             </div>
                         </form>
                     </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    @foreach($universities as $university)
+                    <div class="col-lg-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h2 class="card-title h5 fw-bold">{{ $university->name }}</h2>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <i class="fa-solid fa-globe"></i> {{ $university->website }}
+                                    </div>
+                                    <div class="col-12">
+                                        <i class="fa-solid fa-envelope"></i> {{ $university->contact_email }}
+                                    </div>
+                                    <div class="col-12">
+                                        <i class="fa-solid fa-location-dot"></i> {{ $university->location }}
+                                    </div>
+                                </div>
+                                <p>{{ Str::limit($university->about) }}</p>
+                                <div class="row container row-cols-4 gap-2">
+                                    @if($user->type == 'university')
+                                    <a href="/universities/{{ $university->id }}/edit" class="btn btn-sm btn-dark">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </a>
+                                    <a href="/universities/{{ $university->id }}/delete" class="btn btn-sm btn-dark">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                    @endif
+                                    <a href="/universities/{{ $university->id }}/view" class="btn btn-sm btn-dark">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </a>
+
+                                </div>
+                            </div>
+                            <div class="card-footer bg-light border-dark border-3">
+                                <small class="text-body">
+                                    <i class="fa-solid fa-clock"></i> {{ $university->created_at->diffForHumans() }}</small>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
