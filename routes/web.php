@@ -37,13 +37,13 @@ Route::group(['middleware' => UserIsLogged::class], function () {
     Route::group(['middleware' => UserIsUniversity::class], function () {
         Route::get('/universities', [UniveristyController::class, 'index']);
         Route::post('/universities', [UniveristyController::class, 'create']);
-        Route::get('/universities/{id}/view', [UniveristyController::class, 'show']);
         Route::post('/universities/{id}/update', [UniveristyController::class, 'update']);
         Route::get('/universities/{id}/edit', [UniveristyController::class, 'edit']);
         Route::get('/universities/{id}/delete', [UniveristyController::class, 'delete']);
     });
 });
 
+Route::get('/universities/{id}/view', [UniveristyController::class, 'show']);
 
 // set up migration endpoint
 Route::get('/_db/_migrate', [MigrationController::class, 'index']);
