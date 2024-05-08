@@ -58,7 +58,6 @@ class AccountController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
-            'type' => 'required|in:student,university',
             'password' => 'required|min:8|max:255',
             'password_confirmation' => 'required|same:password',
         ]);
@@ -70,6 +69,7 @@ class AccountController extends Controller
 
         // create user
         $user = User::create([
+            'type' => 'student',
             'name' => $request->name,
             'email' => $request->email,
             'password' => password_hash($request->password, PASSWORD_DEFAULT),

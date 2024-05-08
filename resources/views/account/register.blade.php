@@ -25,15 +25,6 @@
                                         <label for="email">Email</label>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-group form-floating mb-3">
-                                        <select name="type" id="type" class="form-select" required>
-                                            <option value="student" selected>Student</option>
-                                            <option value="university">University</option>
-                                        </select>
-                                        <label for="type">User Type</label>
-                                    </div>
-                                </div>
                             </div>
                             <div class="form-group form-floating mb-3">
                                 <input id="password-field" name="password" type="password" class="form-control" placeholder="Password" required>
