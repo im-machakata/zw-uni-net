@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('requirements')->nullable();
             $table->string('website')->nullable();
             $table->string('contact_email')->nullable();
+            $table->string('application_url')->nullable();
             $table->timestamps();
         });
     }
