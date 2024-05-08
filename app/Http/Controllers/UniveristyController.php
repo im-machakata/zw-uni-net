@@ -142,7 +142,7 @@ class UniveristyController extends Controller
         return back()->with('error', 'University updated');
     }
     public function show($id){
-        $university = University::find($id);
+        $university = University::findOrFail($id);
         return view('universities/show')
             ->with('university', $university);
     }
