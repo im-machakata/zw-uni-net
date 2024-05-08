@@ -69,14 +69,12 @@
                                     <div class="form-group form-floating mb-3">
                                         <input id="password-field" name="password" type="password" class="form-control" placeholder="Password" required>
                                         <label for="password">Password</label>
-                                        <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group form-floating mb-3">
                                         <input id="confirm-password-field" name="password_confirmation" type="password" class="form-control" placeholder="Password" required>
                                         <label for="confirm-password">Confirm Password</label>
-                                        <span toggle="#confirm-password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                     </div>
                                 </div>
                             </div>

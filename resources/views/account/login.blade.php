@@ -19,7 +19,6 @@
                             <div class="form-group form-floating mb-3">
                                 <input id="password-field" name="password" type="password" class="form-control" placeholder="Password" required>
                                 <label for="password">Password</label>
-                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="form-control btn btn-lg btn-dark submit px-3 mb-3">Sign In</button>
