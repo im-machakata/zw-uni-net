@@ -20,11 +20,11 @@
             @endif
             @foreach($universities as $university)
             <div class="col-lg-3">
-                <div class="card border-dark border-2 my-3">
+                <div class="card border-dark border-0 my-3">
                     <div class="card-body">
                         <h2 class="card-title h5 fw-bold">{{ $university->name }}</h2>
                         <p>{{ Str::limit($university->about) }}</p>
-                        <p><a href="/apply/{{$university->id}}">Apply</a></p>
+                        <p><a href="/universities/{{$university->id}}/view">Read more</a></p>
                     </div>
                 </div>
             </div>
