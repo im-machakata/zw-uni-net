@@ -8,7 +8,7 @@
             <p class="lead text-white fw-medium">Find programs that match yours, enroll and wait for the reply.</p>
             @include('layouts.search')
         </div>
-        <div class="row container mx-auto py-4 px-lg-5 px-3" style="margin-top: -8rem;">
+        <div class="row container mx-auto py-4 px-lg-4 px-3" style="margin-top: -8rem;">
             @if(!count($universities) && $query)
             <div class="col-12">
                 <div class="card border-0">
