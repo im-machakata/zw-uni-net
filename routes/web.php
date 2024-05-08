@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/search', [UniveristyController::class, 'index']);
+Route::get('/search', [UniveristyController::class, 'search']);
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/login', [AccountController::class, 'loginPage']);
     Route::post('/login', [AccountController::class, 'createSession']);
@@ -35,12 +35,12 @@ Route::group(['middleware' => UserIsLogged::class], function () {
     Route::post('/profile/update', [AccountController::class, 'updateProfile']);
 
     Route::group(['middleware' => UserIsUniversity::class], function () {
-        Route::get('/admissions', [AdmissionController::class, 'viewAdmissions']);
-        Route::post('/university/update', [AccountController::class, 'updateUniversity']);
-    });
-    Route::group(['middleware' => UserIsStudent::class], function () {
-        Route::get('/apply/{id}', [AdmissionController::class, 'viewApplyToUniversity']);
-        Route::get('/my-admissions', [AdmissionController::class, 'viewMyAdmissions']);
+        Route::get('/universities', [UniveristyController::class, 'index']);
+        Route::post('/universities', [UniveristyController::class, 'create']);
+        Route::get('/universities/{id}/view', [UniveristyController::class, 'show']);
+        Route::post('/universities/{id}/update', [UniveristyController::class, 'update']);
+        Route::get('/universities/{id}/edit', [UniveristyController::class, 'edit']);
+        Route::get('/universities/{id}/delete', [UniveristyController::class, 'delete']);
     });
 });
 

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-white fixed-top border-bottom border-dark border-4" aria-label="Navigation menu">
+<nav class="navbar navbar-expand-lg shadow-md bg-white fixed-top border-bottom border-dark border-4" aria-label="Navigation menu">
     <div class="container-fluid px-lg-5 justify-content-start justify-content-lg-center mx-auto">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -9,16 +9,10 @@
                 <li class="nav-item ps-lg-5 ms-lg-5">
                     <a class="nav-link" href="/search">Search</a>
                 </li>
-                @if(session()->get('user'))
-                @if(session()->get('user')->type === 'university')
+                @if(session()->get('user') && session()->get('user')->type === 'university')
                 <li class="nav-item">
-                    <a class="nav-link" href="/admissions">Admissions</a>
+                    <a class="nav-link" href="/universities">Universities</a>
                 </li>
-                @else
-                <li class="nav-item">
-                    <a class="nav-link" href="/my-admissions">My Admissions</a>
-                </li>
-                @endif
                 @endif
             </ul>
             @if(!session()->get('user'))
