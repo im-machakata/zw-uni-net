@@ -47,7 +47,7 @@
             <div class="col-md-6 pb-4">
                 <div class="card">
                     <div class="card-body">
-                        <p><span class="badge bg-primary invisible">{{ $user->type }}</span></p>
+                        <p><span class="badge bg-primary">{{ $user->type }}</span></p>
                         <h1 class="h1">Personal Details</h1>
                         <p class="text-muted">Tell Us More About Yourself</p>
                         <form action="/profile/update" method="post">
