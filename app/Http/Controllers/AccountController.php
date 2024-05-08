@@ -84,7 +84,7 @@ class AccountController extends Controller
     {
         $university = null;
         $user = session('user');
-        if($user->type == 'university'){
+        if ($user->type == 'university') {
             $university = University::where('user_id', $user->id)->firstOrNew();
         }
 
@@ -119,60 +119,5 @@ class AccountController extends Controller
             ->with('error', null)
             ->with('user', session('user'))
             ->with('success', 'Profile updated');
-    }
-    public function updateUniversity(Request $request)
-    {
-        $user = session('user');
-        $validation = Validator::make($request->all(), [
-            'name' => [
-                'required',
-            ],
-            'location' => [
-                'required'
-            ],
-            'about' => [
-                'nullable'
-            ],
-            'programs' => [
-                'nullable',
-                'string'
-            ],
-            'keywords' => [
-                'nullable',
-                'string'
-            ],
-            'requirements' => [
-                'nullable'
-            ],
-            'website' => [
-                'nullable',
-                'url',
-            ],
-            'contact_email' => [
-                'nullable',
-                'email',
-            ],
-        ]);
-
-        if ($validation->fails()) {
-            $error = $validation->errors()->first();
-            return view('account/profile')
-                ->with('error', $error)
-                ->with('university', University::find($user->id))
-                ->with('user', session('user'));
-        }
-
-        // create/update university details
-        $university = University::where('user_id', $user->id)->firstOrNew();
-        University::updateOrCreate(
-            array(
-                'id' => $university->id,
-                'user_id' => $user->id
-            ),
-            $validation->validated()
-        );
-
-        // show success message
-        return back()->with('error', 'University updated');
     }
 }
