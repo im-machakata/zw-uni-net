@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/search', [UniveristyController::class, 'search']);
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/login', [AccountController::class, 'loginPage']);
     Route::post('/login', [AccountController::class, 'createSession']);
@@ -30,6 +29,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/register', [AccountController::class, 'registerAccount']);
 });
 Route::group(['middleware' => UserIsLogged::class], function () {
+    Route::get('/search', [UniveristyController::class, 'search']);
     Route::get('/logout', [AccountController::class, 'deleteSession']);
     Route::get('/profile', [AccountController::class, 'viewProfile']);
     Route::post('/profile/update', [AccountController::class, 'updateProfile']);
