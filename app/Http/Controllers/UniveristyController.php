@@ -86,7 +86,8 @@ class UniveristyController extends Controller
         // show success message
         return redirect('/universities')->with('error', 'University updated');
     }
-    public function edit($id){
+    public function edit($id)
+    {
         $user = session('user');
         $university = University::find($id);
         return view('universities/update')
@@ -141,9 +142,15 @@ class UniveristyController extends Controller
         // show success message
         return back()->with('error', 'University updated');
     }
-    public function show($id){
+    public function show($id)
+    {
         $university = University::findOrFail($id);
         return view('universities/show')
             ->with('university', $university);
+    }
+    public function delete($id)
+    {
+        University::query()->where('id', $id)->delete();
+        return back()->with('error', 'Institution has been deleted successfully.');
     }
 }
