@@ -41,7 +41,7 @@ class AccountController extends Controller
         // create session
         session(['user' => $user]);
 
-        return redirect()->intended('/');
+        return redirect()->intended();
     }
     public function deleteSession()
     {
