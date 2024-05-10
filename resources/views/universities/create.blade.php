@@ -92,7 +92,7 @@
                                     <a href="/universities/{{ $university->id }}/edit" class="btn btn-sm btn-dark">
                                         <i class="fa-solid fa-pencil"></i>
                                     </a>
-                                    <a href="/universities/{{ $university->id }}/delete" class="btn btn-sm btn-dark">
+                                    <a href="/universities/{{ $university->id }}/delete" id="deleteUniversity" class="btn btn-sm btn-dark">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
                                     @endif
