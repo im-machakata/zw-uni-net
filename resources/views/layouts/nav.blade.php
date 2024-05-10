@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg shadow-md bg-white fixed-top border-bottom border-dark border-4" aria-label="Navigation menu">
+<nav class="navbar navbar-expand-lg shadow-md bg-white fixed-top border-bottom border-dark" aria-label="Navigation menu">
     <div class="container-fluid px-lg-5 justify-content-start justify-content-lg-center mx-auto">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

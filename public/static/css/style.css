@@ -8,7 +8,7 @@
 
 @media (min-width: 992px) {
   .cover {
-    min-height: 100vh;
+    min-height: 82vh;
   }
 }
 
@@ -35,8 +35,9 @@ label,
 label,
 .card,
 .btn,
-.round-off {
-  border-width: 3px;
+.round-off, 
+.navbar {
+  border-width: 3px !important;
 }
 
 .card {
