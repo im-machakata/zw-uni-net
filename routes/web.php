@@ -41,9 +41,8 @@ Route::group(['middleware' => UserIsLogged::class], function () {
         Route::get('/universities/{id}/edit', [UniveristyController::class, 'edit']);
         Route::get('/universities/{id}/delete', [UniveristyController::class, 'delete']);
     });
+    Route::get('/universities/{id}/view', [UniveristyController::class, 'show']);
 });
-
-Route::get('/universities/{id}/view', [UniveristyController::class, 'show']);
 
 // set up migration endpoint
 Route::get('/_db/_migrate', [MigrationController::class, 'index']);
