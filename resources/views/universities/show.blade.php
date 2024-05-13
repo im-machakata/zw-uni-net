@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <h1 class="fs-4 fw-bold mt-3">{{ $university->name }}</h1>
                     <p class="text-muted mb-0">{{ $university->about }}</p>
-                    <div class="text-muted d-flex flex-row flex-wrap gap-x-4 mb-3">
+                    <div class="text-muted d-flex flex-row flex-wrap gap-2 gap-lg-4 mt-2 mb-3">
                         <div>
                             <i class="fa-solid fa-globe pe-1"></i>
                             <a href="{{ $university->website }}" target="_blank" rel="noopener noreferrer">{{ $university->website }}</a>
