@@ -8,14 +8,14 @@
                 <div class="card-body">
                     <h1 class="fs-4 fw-bold mt-3">{{ $university->name }}</h1>
                     <p class="text-muted mb-0">{{ $university->about }}</p>
-                    <div class="text-muted d-flex flex-row flex-wrap gap-4 mb-3">
+                    <div class="text-muted d-flex flex-row flex-wrap gap-x-4 mb-3">
                         <div>
                             <i class="fa-solid fa-globe pe-1"></i>
                             <a href="{{ $university->website }}" target="_blank" rel="noopener noreferrer">{{ $university->website }}</a>
                         </div>
                         <div>
                             <i class="fa-solid fa-envelope pe-1"></i>
-                            <a href="mailto:{{ $university->contact_email }}" target="_blank" rel="noopener noreferrer">{{ $university->website }}</a>
+                            <a href="mailto:{{ $university->contact_email }}" target="_blank" rel="noopener noreferrer">{{ $university->contact_email }}</a>
                         </div>
                     </div>
 
