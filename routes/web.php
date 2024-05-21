@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AdmissionController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MigrationController;
 use App\Http\Controllers\UniveristyController;
@@ -22,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/contact-us', [FeedbackController::class, 'create']);
+Route::post('/contact-us', [FeedbackController::class, 'store']);
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/login', [AccountController::class, 'loginPage']);
     Route::post('/login', [AccountController::class, 'createSession']);
@@ -40,6 +43,9 @@ Route::group(['middleware' => UserIsLogged::class], function () {
         Route::post('/universities/{id}/update', [UniveristyController::class, 'update']);
         Route::get('/universities/{id}/edit', [UniveristyController::class, 'edit']);
         Route::get('/universities/{id}/delete', [UniveristyController::class, 'delete']);
+        Route::get('/messages', [FeedbackController::class, 'index']);
+        Route::get('/messages/{id}/view', [FeedbackController::class, 'show']);
+        Route::get('/messages/{id}/delete', [FeedbackController::class, 'destroy']);
     });
     Route::get('/universities/{id}/view', [UniveristyController::class, 'show']);
 });
