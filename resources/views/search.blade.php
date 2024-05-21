@@ -23,9 +23,12 @@
                 <div class="card border-dark border-0 my-3">
                     <div class="card-body">
                         <img src="https://api.microlink.io/?url={{ urlencode($university->website) }}&palette=true&embed=logo.url&height=100" alt="logo" class="rounded mb-3" loading="lazy" style="height: 100px">
-                        <h2 class="card-title h5 fw-bold">{{ $university->name }}</h2>
+                        <h2 class="card-title h5 fw-bold">
+                            <a href="/universities/{{$university->id}}/view">
+                                {{ Str::limit($university->name, 30) }}
+                            </a>
+                        </h2>
                         <p>{{ Str::limit($university->about) }}</p>
-                        <p><a href="/universities/{{$university->id}}/view">Read more</a></p>
                     </div>
                 </div>
             </div>
