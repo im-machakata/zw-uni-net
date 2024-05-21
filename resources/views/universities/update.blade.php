@@ -4,15 +4,15 @@
 <section>
     <div class="container-fluid">
         <div class="row container-fluid mx-auto py-lg-4">
-            <div class="col-12 mt-5 pt-5 px-md-4">
-                @include('layouts.error')
-            </div>
-            <div class="col-md-6 pb-4">
-                <div class="card">
+            <div class="col-12 pb-4 mt-5">
+                <div class="card border-0">
                     <div class="card-body">
                         <p><span class="badge bg-primary">{{ $user->type }}</span></p>
                         <h1 class="h1">University Details</h1>
                         <p class="text-muted">Update University Details</p>
+                        <div class="col-12">
+                            @include('layouts.error')
+                        </div>
                         <form action="/universities/{{$university->id}}/update" method="post">
                             @csrf
                             <div class="row">
@@ -24,17 +24,23 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group form-floating mb-3">
+                                        <input type="text" name="location" id="university_location" class="form-control" value="{{ $university->location ??'' }}" placeholder="www.applyhere.com/{{$university->id}}" autocomplete="off" required>
+                                        <label for="university_location">University Location</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <div class="form-group form-floating mb-3">
                                         <input type="email" name="contact_email" id="university_contact_email" class="form-control" value="{{ $university->contact_email ??'' }}" placeholder="email@gmail.com" autocomplete="off" required>
                                         <label for="university_contact_email">University Email</label>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-12 col-lg-4">
                                     <div class="form-group form-floating mb-3">
-                                        <input type="text" name="location" id="university_location" class="form-control" value="{{ $university->location ??'' }}" placeholder="Mashava GZU" autocomplete="off" required>
-                                        <label for="university_location">University Location</label>
+                                        <input type="url" name="application_url" id="application_url" class="form-control" placeholder="Mashava GZU" value="{{ $university->application_url ??'' }}" autocomplete="off">
+                                        <label for="application_url">Application Url</label>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-12 col-lg-4">
                                     <div class="form-group form-floating mb-3">
                                         <input type="url" name="website" id="university_website" class="form-control" value="{{ $university->website ??'' }}" placeholder="Mashava GZU" autocomplete="off" required>
                                         <label for="university_website">University Website</label>

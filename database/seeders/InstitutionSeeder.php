@@ -21,6 +21,7 @@ class InstitutionSeeder extends Seeder
             'website' => 'https://www.gzu.ac.zw/',
             'contact_email' => 'info@gzu.ac.zw',
             'keywords' => 'GZU, Great Zimbabwe University, Masvingo, Zimbabwe',
+            'application_url' => 'https://gzu.ac.zw/'
         ]);
 
         University::create([
@@ -31,8 +32,9 @@ class InstitutionSeeder extends Seeder
             'website' => 'https://www.msu.ac.zw/',
             'contact_email' => 'admissions@msu.ac.zw',
             'keywords' => 'MSU, Masvingo, Zimbabwe, University',
+            'application_url' => 'http://msu.ac.zw/apply'
         ]);
-        
+
         University::create([
             'location' => 'Bulawayo',
             'name' => 'National University of Science and Technology',
@@ -40,7 +42,9 @@ class InstitutionSeeder extends Seeder
             'programs' => 'Engineering, Applied Sciences, Commerce, Communication and Information Technology',
             'website' => 'https://www.nust.ac.zw/',
             'contact_email' => 'admissions@nust.ac.zw',
-            'keywords' => 'NUST, Bulawayo, Zimbabwe, University, STEM',
+            'keywords' =>
+            'NUST, Bulawayo, Zimbabwe, University, STEM',
+            'application_url' => 'https://nust.ac.zw/'
         ]);
 
         University::create([
@@ -50,7 +54,9 @@ class InstitutionSeeder extends Seeder
             'programs' => 'Agriculture, Natural Resources Management, Education',
             'website' => 'https://www.lsu.ac.zw/',
             'contact_email' => 'info@lsu.ac.zw',
-            'keywords' => 'LSU, Lupane, Zimbabwe, University',
+            'keywords' =>
+            'LSU, Lupane, Zimbabwe, University',
+            'application_url' => 'https://lsu.ac.zw/apply'
         ]);
     }
 }

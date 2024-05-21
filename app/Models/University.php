@@ -17,5 +17,6 @@ class University extends Model
         'requirements',
         'website',
         'contact_email',
+        'application_url',
     ];
 }

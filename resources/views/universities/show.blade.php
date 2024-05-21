@@ -32,11 +32,16 @@
                     <div class="flex flex-wrap flex-column mb-3">
                         <?php $keywords = explode(',', $university->keywords); ?>
                         @foreach($keywords as $keyword)
-                        <h3 class="fs-6 badge bg-light text-body border fw-normal">{{ $keyword }}</h3>
+                        <h3 class="fs-6 badge bg-light text-body border fw-normal user-select-all">{{ $keyword }}</h3>
                         @endforeach
                     </div>
 
-                    <a href="{{ $university->apllication_url ?? 'http://localhost/'}}" target="_blank" rel="noopener noreferrer" class="btn btn-primary px-5">Apply</a>
+                    <div class="d-flex gap-3">
+                        @if(session('user')->type == 'university')
+                        <a href="/universities/{{ $university->id }}/edit" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary border-1 px-5">Edit</a>
+                        @endif
+                        <a href="{{ $university->application_url ?? $university->website}}" target="_blank" rel="noopener noreferrer" class="btn btn-primary px-5">Apply</a>
+                    </div>
                 </div>
             </div>
         </div>

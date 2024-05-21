@@ -66,6 +66,10 @@ class UniveristyController extends Controller
                 'nullable',
                 'url',
             ],
+            'application_url' => [
+                'required',
+                'url',
+            ],
             'contact_email' => [
                 'nullable',
                 'email',
@@ -74,9 +78,10 @@ class UniveristyController extends Controller
 
         if ($validation->fails()) {
             $error = $validation->errors()->first();
-            return back()
+            return view('universities.update')
+                // ->with()
                 ->with('error', $error)
-                ->with('university', University::find($user->id))
+                ->with('university', University::find($id))
                 ->with('user', session('user'));
         }
 
@@ -84,7 +89,7 @@ class UniveristyController extends Controller
         University::query()->where('id', $id)->update($validation->validated());
 
         // show success message
-        return redirect('/universities')->with('error', 'University updated');
+        return redirect('/universities');
     }
     public function edit($id)
     {
@@ -120,6 +125,10 @@ class UniveristyController extends Controller
                 'nullable'
             ],
             'website' => [
+                'nullable',
+                'url',
+            ],
+            'application_url' => [
                 'nullable',
                 'url',
             ],
