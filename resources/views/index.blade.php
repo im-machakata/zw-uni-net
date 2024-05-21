@@ -23,7 +23,11 @@
                 <div class="col-lg-3">
                     <div class="card my-3">
                         <div class="card-body">
-                            <h3 class="card-title h5 mt-1">{{ $university->name }}</h3>
+                            <img src="https://api.microlink.io/?url={{ urlencode($university->website) }}&palette=true&embed=logo.url&height=100" alt="logo" class="rounded mb-3" loading="lazy" style="height: 100px">
+                            <h3 class="card-title fs-6 mt-1">{{ Str::limit($university->name) }}</h3>
+                            <p class="card-text">
+                                <a href="/universities/{{$university->id}}/view">View Univervisty</a>
+                            </p>
                         </div>
                     </div>
                 </div>

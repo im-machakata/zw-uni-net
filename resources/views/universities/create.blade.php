@@ -80,6 +80,7 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="card mb-3">
                             <div class="card-body">
+                                <img src="https://api.microlink.io/?url={{ urlencode($university->website) }}&palette=true&embed=logo.url&height=100" alt="logo" class="rounded mb-3" loading="lazy" style="height: 100px">
                                 <h2 class="card-title h5 fw-bold">{{ Str::limit($university->name, 20) }}</h2>
                                 <div class="row">
                                     <div class="col-12">
