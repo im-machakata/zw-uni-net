@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('location');
-            $table->text('about')->nullable();
+            $table->mediumText('about')->nullable();
             $table->text('programs')->nullable();
             $table->text('keywords')->nullable();
             $table->text('requirements')->nullable();
