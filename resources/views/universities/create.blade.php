@@ -61,9 +61,8 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="form-group form-floating mb-3">
-                                        <textarea name="about" id="university_about" class="form-control" placeholder="About university" style="height:100px" required>{{ $university->about ?? '' }}</textarea>
-                                        <label for="university_about">About University</label>
+                                    <div class="mb-3">
+                                        <textarea name="about" id="university_about" class="form-control border-dark" placeholder="About university" row="8" required>{{ $university->about ?? '' }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -121,4 +120,12 @@
         </div>
     </div>
 </section>
+<script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#university_about'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 @endsection
