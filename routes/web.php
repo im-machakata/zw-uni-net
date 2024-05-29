@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AccountController;
-use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MigrationController;
@@ -9,8 +8,9 @@ use App\Http\Controllers\UniveristyController;
 use App\Http\Middleware\UserIsLogged;
 use App\Http\Middleware\UserIsStudent;
 use App\Http\Middleware\UserIsUniversity;
-use App\Livewire\Create\Programs;
+use App\Livewire\Create\ProgramRequirements;
 use App\Livewire\Create\Qualifications;
+use App\Livewire\Create\University;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,7 +40,7 @@ Route::group(['middleware' => UserIsLogged::class], function () {
     Route::post('/profile/update', [AccountController::class, 'updateProfile']);
 
     Route::group(['middleware' => UserIsUniversity::class], function () {
-        Route::get('/universities', [UniveristyController::class, 'index']);
+        Route::get('/universities', University::class);
         Route::post('/universities', [UniveristyController::class, 'create']);
         Route::post('/universities/{id}/update', [UniveristyController::class, 'update']);
         Route::get('/universities/{id}/edit', [UniveristyController::class, 'edit']);
@@ -48,7 +48,7 @@ Route::group(['middleware' => UserIsLogged::class], function () {
         Route::get('/messages', [FeedbackController::class, 'index']);
         Route::get('/messages/{id}/view', [FeedbackController::class, 'show']);
         Route::get('/messages/{id}/delete', [FeedbackController::class, 'destroy']);
-        Route::get('/programs/create', Programs::class);
+        Route::get('/program/{id}/requirements', ProgramRequirements::class);
     });
     Route::group(['middleware' => UserIsStudent::class], function () {
         Route::get('/qualifications', Qualifications::class);

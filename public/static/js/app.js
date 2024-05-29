@@ -9,4 +9,5 @@ $(function () {
         }
         return;
     });
+    $('.ck.ck-reset ck-editor.ck-rounded-corners').addClass('form-control');
 });
