@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class UserQualification extends Model
 {
     use HasFactory;
+    protected $fillable = ['grade', 'module', 'user_id'];
 }
