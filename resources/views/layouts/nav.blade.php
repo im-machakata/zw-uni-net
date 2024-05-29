@@ -17,6 +17,11 @@
                     <a class="nav-link" href="/messages">Messages</a>
                 </li>
                 @endif
+                @if(session()->get('user') && session()->get('user')->type === 'student')
+                <li class="nav-item">
+                    <a class="nav-link" href="/qualifications">My Qualifications</a>
+                </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link" href="/contact-us">Contact Us</a>
                 </li>
