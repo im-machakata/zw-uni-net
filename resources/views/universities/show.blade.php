@@ -39,7 +39,7 @@
 
                     <div class="d-flex gap-3">
                         @if(session('user')->type == 'university')
-                        <a href="/universities/{{ $university->id }}/edit" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary border-1 px-5">Edit</a>
+                        <a href="/universities/{{ $university->id }}/edit" rel="noopener noreferrer" class="btn btn-outline-primary border-1 px-5">Edit</a>
                         @endif
                         <a href="{{ $university->application_url ?? $university->website}}" target="_blank" rel="noopener noreferrer" class="btn btn-primary px-5">Apply</a>
                     </div>
