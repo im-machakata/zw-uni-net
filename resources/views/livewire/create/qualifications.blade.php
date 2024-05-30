@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button class="btn btn-dark" wire:click="destroy({{$qualification->id}})">Delete</button>
+                                <button class="btn btn-sm btn-dark" wire:click="destroy({{$qualification->id}})">Delete</button>
                             </div>
                         </div>
                     </div>
