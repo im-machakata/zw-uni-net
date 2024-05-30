@@ -48,10 +48,13 @@ class University extends Component
         unset($validated['applicaionUrl'], $validated['contactEmail']);
 
         // save new university
-        ModelsUniversity::query()->create($validated);
+        $university = ModelsUniversity::query()->create($validated);
 
         // reset form inputs
         $this->reset(array_keys($validated));
+
+        // redirect users to add programs page
+        return redirect()->to(sprintf('/universities/%s/programs', $university->id));
     }
 
     public function render()

@@ -11,6 +11,7 @@ use App\Http\Middleware\UserIsUniversity;
 use App\Livewire\Create\ProgramRequirements;
 use App\Livewire\Create\Qualifications;
 use App\Livewire\Create\University;
+use App\Livewire\Create\UniversityPrograms;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,6 +50,7 @@ Route::group(['middleware' => UserIsLogged::class], function () {
         Route::get('/messages/{id}/view', [FeedbackController::class, 'show']);
         Route::get('/messages/{id}/delete', [FeedbackController::class, 'destroy']);
         Route::get('/program/{id}/requirements', ProgramRequirements::class);
+        Route::get('/universities/{id}/programs', UniversityPrograms::class);
     });
     Route::group(['middleware' => UserIsStudent::class], function () {
         Route::get('/qualifications', Qualifications::class);
