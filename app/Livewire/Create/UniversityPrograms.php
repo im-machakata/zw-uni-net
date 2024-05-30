@@ -12,7 +12,7 @@ use Livewire\Attributes\Validate;
 #[Title('Unimap University Programs')]
 class UniversityPrograms extends Component
 {
-    #[Validate('required|min:3|max:255|unique:programs,name,university_id')]
+    #[Validate('required|min:3|max:255')]
     public string $name;
 
     #[Validate('required|decimal:2')]
