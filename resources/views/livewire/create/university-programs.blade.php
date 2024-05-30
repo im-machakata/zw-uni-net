@@ -6,7 +6,7 @@
                     <div class="card-body mt-5 pt-4">
                         <p><span class="badge bg-primary">{{ $this->user->type }}</span></p>
                         <h1 class="h1 fs-2">Manage Programs</h1>
-                        <p class="text-muted text-capitalize">Manage programs for this institution.</p>
+                        <p class="text-muted text-capitalize">Manage programs for <strong>{{$university->name}}</strong>.</p>
                         <form wire:submit="save">
                             @csrf
                             <div class="row">

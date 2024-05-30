@@ -55,6 +55,7 @@ class UniversityPrograms extends Component
     {
         return view('livewire.create.university-programs')
             ->with('university_id', $this->id)
+            ->with('university', University::find($this->id ?? $this->university_id))
             ->with('programs', Program::where('university_id', $this->id ?? $this->university_id)->get());
     }
 }
