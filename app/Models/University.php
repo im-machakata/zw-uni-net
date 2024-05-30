@@ -17,4 +17,9 @@ class University extends Model
         'contact_email',
         'application_url',
     ];
+
+    public function programs()
+    {
+        return $this->hasMany(Program::class);
+    }
 }

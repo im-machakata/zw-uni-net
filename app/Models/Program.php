@@ -13,4 +13,9 @@ class Program extends Model
         'price',
         'university_id'
     ];
+
+    public function university()
+    {
+        return $this->belongsTo(University::class);
+    }
 }
