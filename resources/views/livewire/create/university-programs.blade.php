@@ -35,12 +35,15 @@
                 </div>
             </div>
             <div class="col-12">
-                <div class="row">
+                <div class="row g-4">
                     @foreach($programs as $program)
                     <div class="col-md-6 col-lg-3">
                         <div class="card mb-3">
                             <div class="card-body">
                                 <h2 class="card-title fs-5">{{$program->name}}</h2>
+                                <p class="mb-0">
+                                    <a href="/program/{{$program->id}}/requirements">Requirements</a>
+                                </p>
                             </div>
                             <div class="card-footer bg-light border-dark border-3">
                                 <small class="text-body">
