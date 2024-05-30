@@ -15,7 +15,7 @@
                                 </div>
                                 <div class="col-md-6 col-lg-8">
                                     <div class="form-group form-floating mb-3">
-                                        <input type="text" name="name" id="name" class="form-control" placeholder="Information Systems" wire:model="name" autocomplete="off" required>
+                                        <input type="text" name="name" id="name" class="form-control text-capitalize" placeholder="Information Systems" wire:model="name" autocomplete="off" required>
                                         <label for="name">Program Name</label>
                                     </div>
                                 </div>
