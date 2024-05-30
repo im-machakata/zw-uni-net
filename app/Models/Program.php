@@ -14,6 +14,11 @@ class Program extends Model
         'university_id'
     ];
 
+    public function requirements()
+    {
+        return $this->hasMany(ProgramRequirement::class);
+    }
+    
     public function university()
     {
         return $this->belongsTo(University::class);

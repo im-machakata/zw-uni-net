@@ -21,6 +21,8 @@ class UniveristyController extends Controller
                 ->orWhere('keywords', 'like', '%' . $query . '%')
                 ->orWhere('website', 'like', '%' . $query . '%')
                 ->orWhere('contact_email', 'like', '%' . $query . '%')
+                ->orWhereRelation('programs', 'name', 'like', '%' . $query . '%')
+                ->orWhereRelation('programs.requirements', 'module', 'like', '%' . $query . '%')
                 ->get();
         }
         return view('search')
