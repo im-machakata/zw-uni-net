@@ -48,6 +48,7 @@ class ProgramRequirements extends Component
     {
         $form = $this->validate();
         $form['program_id'] = $this->programId;
+        $form['grades'] = strtoupper($form['grades']);
 
         ProgramRequirement::create($form);
     }

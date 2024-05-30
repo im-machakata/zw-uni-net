@@ -30,7 +30,7 @@ class Qualifications extends Component
         $this->validate();
         UserQualification::create([
             'module' => $this->module,
-            'grade' => $this->grade,
+            'grade' => strtoupper($this->grade),
             'user_id' => $this->user->id
         ]);
         $this->reset(['module', 'grade']);
@@ -49,6 +49,6 @@ class Qualifications extends Component
     }
     private function loadQualifications()
     {
-        $this->qualifications = UserQualification::where('user_id', $this->user->id)->get();
+        $this->qualifications = UserQualification::where('user_id', $this->user->id)->orderBy('module')->get();
     }
 }
