@@ -18,16 +18,35 @@
         <div class="container-fluid">
             <h2 class="fw-bold pt-2">Institutions Registered</h2>
             <p class="text-muted">Nesciunt accusamus facere blanditiis illo architecto illum consequuntur quod vero?</p>
-            <div class="row">
+            <div class="row g-4 mb-5">
                 @foreach($universities as $university)
                 <div class="col-lg-3">
-                    <div class="card my-3">
+                    <div class="card my-3 h-100">
                         <div class="card-body">
                             <img src="https://api.microlink.io/?url={{ urlencode($university->website) }}&palette=true&embed=logo.url&height=100" alt="logo" class="rounded mb-3" loading="lazy" style="height: 100px">
                             <h3 class="card-title fs-6 mt-1">{{ Str::limit($university->name) }}</h3>
-                            <p class="card-text">
-                                <a href="/universities/{{$university->id}}/view">View Univervisty</a>
-                            </p>
+                        </div>
+                        <div class="card-footer bg-dark rounded-0">
+                            <a href="/universities/{{$university->id}}/view" class="text-white">View Univervisty</a>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bg-white container-fluid">
+    <div class="container-fluid">
+        <div class="container-fluid">
+            <h2 class="fw-bold pt-2">Recommended Programs</h2>
+            <p class="text-muted">Nesciunt accusamus facere blanditiis illo architecto illum consequuntur quod vero?</p>
+            <div class="row g-4">
+                @foreach($programs as $program)
+                <div class="col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title fs-6 my-1">{{ Str::limit($program->name) }}</h3>
                         </div>
                     </div>
                 </div>
