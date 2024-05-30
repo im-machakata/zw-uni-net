@@ -3,9 +3,9 @@
 @section('content')
 <section class="container-fluid">
     <div class="container-fluid">
-        <div class="row justify-content-center container-fluid py-5">
-            <div class="col-md-6 col-lg-4 py-4">
-                <div class="card mt-5">
+        <div class="row justify-content-center container-fluid">
+            <div class="col-md-6 col-lg-4">
+                <div class="card mt-5 pt-5">
                     <div class="card-body">
                         <h1 class="text-center">Register</h1>
                         <p class="text-muted text-center">Join our community</p>
