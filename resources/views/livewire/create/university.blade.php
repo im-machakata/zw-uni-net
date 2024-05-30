@@ -1,87 +1,63 @@
 <section>
     <div class="container-fluid">
         <div class="row container-fluid mx-auto py-lg-4">
-            <div class="col-12 mt-5 pt-5 px-md-4">
-                @include('layouts.error')
-            </div>
             <div class="col-12 pb-4">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body mt-5 pt-4">
                         <p><span class="badge bg-primary">{{ $this->user->type }}</span></p>
                         <h1 class="h1 fs-2">University Details</h1>
                         <p class="text-muted">Tell Us More About Your University</p>
-                        <form action="/universities" method="post">
+                        <form wire:submit="save">
                             @csrf
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group form-floating mb-3">
-                                        <input type="text" name="name" id="university_name" class="form-control" placeholder="John Doe" autocomplete="off" required>
-                                        <label for="university_name">University Name</label>
-                                    </div>
+                                <div class="col-12">
+                                    @include('layouts.error')
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group form-floating mb-3">
-                                        <input type="email" name="contact_email" id="university_contact_email" class="form-control" placeholder="email@gmail.com" autocomplete="off" required>
-                                        <label for="university_contact_email">University Email</label>
+                                        <input type="text" name="name" id="name" class="form-control" placeholder="John Doe" wire:model="name" autocomplete="off" required>
+                                        <label for="name">University Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group form-floating mb-3">
+                                        <input type="email" name="contactEmail" id="contactEmail" class="form-control" placeholder="email@gmail.com" autocomplete="off" wire:model="contactEmail" required>
+                                        <label for="contactEmail">University Email</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-4">
                                     <div class="form-group form-floating mb-3">
-                                        <input type="text" name="location" id="university_location" class="form-control" placeholder="Mashava GZU" autocomplete="off" required>
-                                        <label for="university_location">University Location</label>
+                                        <input type="text" name="location" id="location" class="form-control" placeholder="Mashava GZU" autocomplete="off" wire:model="location" required>
+                                        <label for="location">University Location</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-4">
                                     <div class="form-group form-floating mb-3">
-                                        <input type="url" name="website" id="university_website" class="form-control" placeholder="Mashava GZU" autocomplete="off" required>
-                                        <label for="university_website">University Website</label>
+                                        <input type="url" name="website" id="website" class="form-control" placeholder="Mashava GZU" autocomplete="off" wire:model="website" required>
+                                        <label for="website">University Website</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-4">
                                     <div class="form-group form-floating mb-3">
-                                        <input type="url" name="application_url" id="application_url" class="form-control" placeholder="Mashava GZU" autocomplete="off" required>
+                                        <input type="url" name="application_url" id="application_url" class="form-control" placeholder="Mashava GZU" autocomplete="off" wire:model="applicationUrl" required>
                                         <label for="application_url">Application Url</label>
                                     </div>
                                 </div>
-                                <div class="col-12 row">
-                                    <div class="col-lg-8">
-                                        <div class="form-group form-floating mb-3">
-                                            <input type="text" name="programs" id="university_programs" class="form-control" placeholder="Information Systems, Accounts" autocomplete="off" wire:model="$programName" required>
-                                            <label for="university_programs">University Programs</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <div class="form-group form-floating mb-3">
-                                            <input type="text" name="programs" id="price" class="form-control" placeholder="Information Systems, Accounts" autocomplete="off"  wire:model="$programPrice" required>
-                                            <label for="price">Program Price</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <button class="btn btn-dark py-3 w-100" wire:click="addToList" type="button">Add Program</button>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    @foreach($this->programs as $program)
-                                    <div class="program">
-                                        {{$program['name']}}
-                                    </div>
-                                    @endforeach
-                                </div>
                                 <div class="col-12">
                                     <div class="form-group form-floating mb-3">
-                                        <input type="text" name="keywords" id="university_keywords" class="form-control tags" placeholder="GZU, Mashava" autocomplete="off" required>
-                                        <label for="university_keywords">University Keywords</label>
+                                        <input type="text" name="keywords" id="keywords" class="form-control tags" placeholder="GZU, Mashava" autocomplete="off" wire:model="keywords" required>
+                                        <label for="keywords">University Keywords</label>
                                         <small class="form-text text-muted">Enter comma separated keywords related to the university</small>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="mb-3">
-                                        <textarea name="about" id="university_about" class="form-control border-dark" placeholder="About university" row="8" required></textarea>
+                                        <textarea name="about" id="about" class="form-control border-dark" placeholder="About university" row="8" wire:model="about" required></textarea>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="form-control btn btn-lg btn-dark submit px-3 mb-3">Add University</button>
+                                <button type="button" class="form-control btn btn-lg btn-dark submit px-3 mb-3" wire:click="save">Add Programs</button>
                             </div>
                         </form>
                     </div>
@@ -89,7 +65,7 @@
             </div>
             <div class="col-12">
                 <div class="row">
-                    @foreach($this->universities as $university)
+                    @foreach($universities as $university)
                     <div class="col-md-6 col-lg-3">
                         <div class="card mb-3">
                             <div class="card-body">
@@ -136,7 +112,7 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
     <script>
         ClassicEditor
-            .create(document.querySelector('#university_about'))
+            .create(document.querySelector('#about'))
             .catch(error => {
                 console.error(error);
             });
