@@ -48,12 +48,6 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group form-floating mb-3">
-                                        <input type="text" name="programs" id="university_programs" class="form-control tags" value="{{ $university->programs ??'' }}" placeholder="Information Systems, Accounts" autocomplete="off" required>
-                                        <label for="university_programs">University Programs</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group form-floating mb-3">
                                         <input type="text" name="keywords" id="university_keywords" class="form-control tags" value="{{ $university->keywords ??'' }}" placeholder="GZU, Mashava" autocomplete="off" required>
                                         <label for="university_keywords">University Keywords</label>
                                     </div>

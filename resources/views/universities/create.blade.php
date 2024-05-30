@@ -46,14 +46,7 @@
                                         <label for="application_url">Application Url</label>
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-6">
-                                    <div class="form-group form-floating mb-3">
-                                        <input type="text" name="programs" id="university_programs" class="form-control tags" placeholder="Information Systems, Accounts" autocomplete="off" required>
-                                        <label for="university_programs">University Programs</label>
-                                        <small class="form-text text-muted">Enter a comma-separated list of programs offered by the university.</small>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6">
+                                <div class="col-12">
                                     <div class="form-group form-floating mb-3">
                                         <input type="text" name="keywords" id="university_keywords" class="form-control tags" placeholder="GZU, Mashava" autocomplete="off" required>
                                         <label for="university_keywords">University Keywords</label>

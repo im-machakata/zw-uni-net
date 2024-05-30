@@ -19,8 +19,6 @@ class UniveristyController extends Controller
                 ->orWhere('location', 'like', '%' . $query . '%')
                 ->orWhere('about', 'like', '%' . $query . '%')
                 ->orWhere('keywords', 'like', '%' . $query . '%')
-                ->orWhere('programs', 'like', '%' . $query . '%')
-                ->orWhere('requirements', 'like', '%' . $query . '%')
                 ->orWhere('website', 'like', '%' . $query . '%')
                 ->orWhere('contact_email', 'like', '%' . $query . '%')
                 ->get();
@@ -50,10 +48,6 @@ class UniveristyController extends Controller
             ],
             'about' => [
                 'nullable'
-            ],
-            'programs' => [
-                'nullable',
-                'string'
             ],
             'keywords' => [
                 'nullable',
