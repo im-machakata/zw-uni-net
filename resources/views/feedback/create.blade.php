@@ -3,10 +3,9 @@
 @section('content')
 <section>
     <div class="container-fluid">
-        <div class="row container-fluid mx-auto py-lg-4">
-            <div class="col-12 mt-5 pt-5 px-md-4"> </div>
+        <div class="row container-fluid mx-auto justify-content-center py-5">
             <div class="col-md-6 pb-4">
-                <div class="card border-0">
+                <div class="card pt-4">
                     <div class="card-body">
                         <h1 class="h1">Contact Us</h1>
                         <p class="text-muted">Send us any feedback</p>
