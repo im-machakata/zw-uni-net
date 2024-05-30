@@ -83,27 +83,27 @@
                                     </div>
                                 </div>
                                 <p>{{ Str::limit($university->about,40) }}</p>
-                                <div class="row container row-cols-4 gap-2">
+                                <div class="row justify-content-around row-cols-5 g-2">
                                     @if($this->user->type == 'university')
-                                    <a href="/universities/{{ $university->id }}/edit" class="btn btn-sm btn-dark">
+                                    <a href="/universities/{{ $university->id }}/edit" class="btn btn-sm btn-outline-dark">
                                         <i class="fa-solid fa-pencil"></i>
                                     </a>
-                                    <a href="/universities/{{ $university->id }}/programs" class="btn btn-sm btn-dark">
+                                    <a href="/universities/{{ $university->id }}/programs" class="btn btn-sm btn-outline-dark">
                                         <i class="fa-solid fa-newspaper"></i>
                                     </a>
-                                    <a href="/universities/{{ $university->id }}/delete" id="deleteUniversity" class="btn btn-sm btn-dark">
+                                    <a href="/universities/{{ $university->id }}/delete" id="deleteUniversity" class="btn btn-sm btn-outline-dark">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
                                     @endif
-                                    <a href="/universities/{{ $university->id }}/view" class="btn btn-sm btn-dark">
+                                    <a href="/universities/{{ $university->id }}/view" class="btn btn-sm btn-outline-dark">
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
 
                                 </div>
                             </div>
-                            <div class="card-footer bg-light border-dark border-3">
-                                <small class="text-body">
-                                    <i class="fa-solid fa-clock"></i> {{ $university->created_at->diffForHumans() }}</small>
+                            <div class="card-footer bg-dark border-dark border-3 rounded-0">
+                                <small class="text-white">
+                                    <i class="fa-solid fa-clock pe-1"></i> {{ $university->created_at->diffForHumans() }}</small>
                             </div>
                         </div>
                     </div>
