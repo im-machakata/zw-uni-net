@@ -1,7 +1,7 @@
-@if(isset($error) && !empty($error))
+@if((isset($error) && !empty($error)) || $errors->any())
 <div class="my-2">
     <div class="alert alert-info">
-        {{ $error }}
+        {{ $error ?? $errors->first()}}
     </div>
 </div>
 @endif
