@@ -21,14 +21,28 @@
                     </div>
 
                     <h2 class="fs-4">Programs Offered</h2>
-                    <ol>
-                        <?php $programs = explode(',', $university->programs); ?>
-                        @foreach($programs as $program)
-                        <li>
-                            <h3 class="fs-6">{{ $program }}</h3>
-                        </li>
-                        @endforeach
-                    </ol>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Program</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Updated</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($university->programs as $program)
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>{{ $program->name }}</td>
+                                    <td>${{ $program->price }}</td>
+                                    <td>{{ $program->created_at->diffForHumans() }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                     <h2 class="fs-4">Related Keywords</h2>
                     <div class="flex flex-wrap flex-column mb-3">
                         <?php $keywords = explode(',', $university->keywords); ?>
