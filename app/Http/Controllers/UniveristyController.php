@@ -104,16 +104,9 @@ class UniveristyController extends Controller
             'about' => [
                 'nullable'
             ],
-            'programs' => [
-                'nullable',
-                'string'
-            ],
             'keywords' => [
                 'nullable',
                 'string'
-            ],
-            'requirements' => [
-                'nullable'
             ],
             'website' => [
                 'nullable',
