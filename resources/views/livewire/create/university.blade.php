@@ -88,6 +88,9 @@
                                     <a href="/universities/{{ $university->id }}/edit" class="btn btn-sm btn-dark">
                                         <i class="fa-solid fa-pencil"></i>
                                     </a>
+                                    <a href="/universities/{{ $university->id }}/programs" class="btn btn-sm btn-dark">
+                                        <i class="fa-solid fa-newspaper"></i>
+                                    </a>
                                     <a href="/universities/{{ $university->id }}/delete" id="deleteUniversity" class="btn btn-sm btn-dark">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
