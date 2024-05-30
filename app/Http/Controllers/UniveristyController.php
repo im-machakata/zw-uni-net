@@ -53,9 +53,6 @@ class UniveristyController extends Controller
                 'nullable',
                 'string'
             ],
-            'requirements' => [
-                'nullable'
-            ],
             'website' => [
                 'nullable',
                 'url',
