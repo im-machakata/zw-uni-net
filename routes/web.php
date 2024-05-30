@@ -55,6 +55,7 @@ Route::group(['middleware' => UserIsLogged::class], function () {
     Route::group(['middleware' => UserIsStudent::class], function () {
         Route::get('/qualifications', Qualifications::class);
     });
+    Route::get('/program/{id}/requirements', ProgramRequirements::class);
     Route::get('/universities/{id}/view', [UniveristyController::class, 'show']);
 });
 

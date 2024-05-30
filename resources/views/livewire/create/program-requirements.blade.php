@@ -8,6 +8,7 @@
                         <h1 class="h1 fs-2">Manage Program Requirements</h1>
                         <p class="text-muted text-capitalize">Manage entry requirments for <strong>{{$program->name}}</strong> on <strong>{{$university->name}}</strong>.</p>
                         <form wire:submit="save">
+                            @if($this->user->type == "university")
                             @csrf
                             <div class="row">
                                 <div class="col-12">
@@ -32,6 +33,7 @@
                                 <button type="button" class="form-control btn btn-lg btn-dark submit px-3 mb-3" wire:click="save">Add Requirement</button>
                             </div>
                         </form>
+                        @endif
                     </div>
                 </div>
             </div>

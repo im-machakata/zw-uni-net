@@ -29,15 +29,17 @@
                                     <th scope="col">Program</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Updated</th>
+                                    <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($university->programs as $program)
                                 <tr>
-                                    <th scope="row">1</th>
+                                    <th scope="row">#{{ $program->id }}</th>
                                     <td>{{ $program->name }}</td>
                                     <td>${{ $program->price }}</td>
                                     <td>{{ $program->created_at->diffForHumans() }}</td>
+                                    <td><a href="/program/{{ $program->id }}/requirements">Program Requirements</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
