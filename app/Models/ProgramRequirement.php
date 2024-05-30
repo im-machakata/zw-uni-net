@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ProgramRequirement extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'module',
+        'grades',
+        'program_id'
+    ];
 }
